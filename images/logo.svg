@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -1 72 72" role="img" aria-label="לוטוס">
+  <defs><path id="petal" d="M32 46C24 38 24 22 32 10C40 22 40 38 32 46Z" stroke="#faf7f2" stroke-width="1.5" stroke-linejoin="round"/></defs>
+  <use href="#petal" fill="#c9b8e4" transform="rotate(-72 32 46)"/>
+  <use href="#petal" fill="#c9b8e4" transform="rotate(72 32 46)"/>
+  <use href="#petal" fill="#a58fcf" transform="rotate(-36 32 46)"/>
+  <use href="#petal" fill="#a58fcf" transform="rotate(36 32 46)"/>
+  <use href="#petal" fill="#6e5a96"/>
+  <path d="M10 55Q32 66 54 55" fill="none" stroke="#6f8f7a" stroke-width="3.5" stroke-linecap="round"/>
+</svg>
