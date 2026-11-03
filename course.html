@@ -13,13 +13,15 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
 <header class="site-header">
   <nav class="nav container">
     <a class="logo" href="index.html"><img src="images/logo.svg" alt="" width="46" height="46"><span>אדם ריקלין<small>טיפול רגשי · לימוד בודהיזם</small></span></a>
-    <button class="menu-btn" aria-label="תפריט">☰</button>
+    <button class="menu-btn" aria-label="תפריט" aria-expanded="false">☰</button>
     <ul><li><a class="link" href="index.html">בית</a></li><li><a class="link" href="index.html#about">אודות</a></li><li><a class="link" href="index.html#services">מה אני מציע</a></li><li><a class="link active" href="course.html">קורסים</a></li><li><a class="link" href="events.html">אירועים</a></li><li><a class="link" href="contact.html">יצירת קשר</a></li></ul>
   </nav>
 </header>
+<main id="main">
 
 <section class="hero">
   <div class="container hero-grid">
@@ -82,6 +84,7 @@
   </div>
 </section>
 
+</main>
 <div class="modal" id="signup-modal" role="dialog" aria-modal="true" aria-labelledby="signup-title">
   <div class="modal-box">
     <button class="modal-close" aria-label="סגירה">×</button>
@@ -101,7 +104,7 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div><strong>אדם ריקלין</strong><br>טיפול רגשי · לימוד בודהיזם · מעגלים</div>
-    <div><a href="contact.html">יצירת קשר</a> · <a href="course.html">קורסים</a> · <a href="events.html">אירועים</a> · <a data-wa href="#">וואטסאפ</a></div>
+    <div><a href="contact.html">יצירת קשר</a> · <a href="course.html">קורסים</a> · <a href="events.html">אירועים</a> · <a data-wa href="#">וואטסאפ</a> · <a href="accessibility.html">הצהרת נגישות</a></div>
     <div>© <span id="yr"></span> כל הזכויות שמורות</div>
   </div>
 </footer>

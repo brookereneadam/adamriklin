@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // תפריט במובייל
   const btn = document.querySelector(".menu-btn");
   const menu = document.querySelector(".nav ul");
-  if (btn && menu) btn.addEventListener("click", () => menu.classList.toggle("open"));
+  if (btn && menu) btn.addEventListener("click", () => btn.setAttribute("aria-expanded", menu.classList.toggle("open")));
 
   // כפתורי וואטסאפ כלליים
   document.querySelectorAll("[data-wa]").forEach(el => {
