@@ -44,7 +44,7 @@ img{max-width:100%;display:block}
 .hero-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
 .hero .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
 .portrait{aspect-ratio:4/5;border-radius:200px 200px var(--radius) var(--radius);background:var(--lilac) center/cover;box-shadow:var(--shadow);display:grid;place-items:center;color:var(--purple);font-size:.95rem}
-@media (max-width:760px){.hero-grid{grid-template-columns:1fr}.portrait{max-width:320px;margin-inline:auto}}
+@media (max-width:760px){.hero-grid{grid-template-columns:1fr}.portrait{width:100%;max-width:320px;margin-inline:auto}}
 
 /* cards */
 .grid{display:grid;gap:24px}
