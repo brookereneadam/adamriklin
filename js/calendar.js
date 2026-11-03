@@ -90,18 +90,18 @@
 
   form.addEventListener("submit", e => {
     e.preventDefault();
-    const d = new FormData(form);
+    const d = Object.fromEntries(new FormData(form));
     const msg = [
       `שלום אדם, אני רוצה להירשם לאירוע:`,
       `*${current.title}*`,
       `${fmt(parse(current.date))} · ${current.time}`,
       ``,
-      `שם: ${d.get("name")}`,
-      `טלפון: ${d.get("phone")}`,
-      `מספר משתתפים: ${d.get("count")}`,
-      d.get("notes") ? `הערות: ${d.get("notes")}` : "",
+      `שם: ${d.name}`, `טלפון: ${d.phone}`,
+      d.email ? `אימייל: ${d.email}` : "",
+      `מספר משתתפים: ${d.count}`,
+      d.notes ? `הערות: ${d.notes}` : "",
     ].filter(x => x !== "").join("\n");
-    window.open(waLink(msg), "_blank");
+    submitLead("הרשמה לאירוע", { ...d, item: current.title, itemDate: current.date }, msg);
     close();
   });
 

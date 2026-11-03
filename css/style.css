@@ -98,3 +98,6 @@ textarea{min-height:120px;resize:vertical}
 .footer-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
 .wa-float{position:fixed;bottom:20px;inset-inline-start:20px;width:56px;height:56px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:var(--shadow);z-index:30}
 .wa-float svg{width:30px;height:30px;fill:#fff}
+.field.check{display:flex;gap:10px;align-items:flex-start}
+.field.check input{width:auto;margin-top:6px;accent-color:var(--sage)}
+.field.check label{font-weight:400;margin:0;font-size:.95rem}

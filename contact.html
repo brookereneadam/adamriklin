@@ -13,9 +13,9 @@
 <body>
 <header class="site-header">
   <nav class="nav container">
-    <a class="logo" href="index.html">אדם ריקלין<small>טיפול רגשי ומעגלים</small></a>
+    <a class="logo" href="index.html">אדם ריקלין<small>טיפול רגשי · לימוד בודהיזם</small></a>
     <button class="menu-btn" aria-label="תפריט">☰</button>
-    <ul><li><a class="link" href="index.html">בית</a></li><li><a class="link" href="index.html#about">אודות</a></li><li><a class="link" href="index.html#services">מה אני מציע</a></li><li><a class="link" href="events.html">אירועים</a></li><li><a class="link active" href="contact.html">יצירת קשר</a></li></ul>
+    <ul><li><a class="link" href="index.html">בית</a></li><li><a class="link" href="index.html#about">אודות</a></li><li><a class="link" href="index.html#services">מה אני מציע</a></li><li><a class="link" href="course.html">קורסים</a></li><li><a class="link" href="events.html">אירועים</a></li><li><a class="link active" href="contact.html">יצירת קשר</a></li></ul>
   </nav>
 </header>
 
@@ -34,21 +34,23 @@
       <form id="inquiry-form">
         <div class="field"><label for="name">שם</label><input id="name" name="name" required></div>
         <div class="field"><label for="phone">טלפון</label><input id="phone" name="phone" type="tel" required></div>
+        <div class="field"><label for="email">אימייל (לא חובה)</label><input id="email" name="email" type="email"></div>
         <div class="field"><label for="topic">במה אפשר לעזור?</label>
-          <select id="topic" name="topic"><option value="">בחירה…</option><option>טיפול אישי</option><option>טיפול זוגי</option><option>מעגלים וסדנאות</option><option>אחר</option></select></div>
+          <select id="topic" name="topic"><option value="">בחירה…</option><option>טיפול אישי</option><option>טיפול זוגי</option><option>מעגלים וסדנאות</option><option>קורס מבוא לבודהיזם</option><option>אחר</option></select></div>
         <div class="field"><label for="format">העדפה</label>
           <select id="format" name="format"><option value="">לא משנה</option><option>פגישה בקליניקה</option><option>אונליין</option></select></div>
         <div class="field"><label for="message">כמה מילים (לא חובה)</label><textarea id="message" name="message"></textarea></div>
+        <div class="field check"><input type="checkbox" id="consent" name="consent" value="yes"><label for="consent">אשמח לקבל עדכונים על אירועים וקורסים חדשים</label></div>
         <button class="btn btn-wa" type="submit" style="width:100%;justify-content:center">שליחה בוואטסאפ</button>
-        <p class="form-note" style="margin-top:10px">הפרטים לא נשמרים באתר – הם עוברים רק להודעת הוואטסאפ שלך.</p>
+        <p class="form-note" style="margin-top:10px">הפרטים נשמרים אצל אדם לצורך חזרה אלייך בלבד ונפתחת הודעת וואטסאפ מוכנה לשליחה.</p>
       </form>
     </div>
   </div>
 </section>
 <footer class="site-footer">
   <div class="container footer-grid">
-    <div><strong>אדם ריקלין</strong><br>טיפול רגשי · מעגלים · סדנאות</div>
-    <div><a href="contact.html">יצירת קשר</a> · <a href="events.html">אירועים</a> · <a data-wa href="#">וואטסאפ</a></div>
+    <div><strong>אדם ריקלין</strong><br>טיפול רגשי · לימוד בודהיזם · מעגלים</div>
+    <div><a href="contact.html">יצירת קשר</a> · <a href="course.html">קורסים</a> · <a href="events.html">אירועים</a> · <a data-wa href="#">וואטסאפ</a></div>
     <div>© <span id="yr"></span> כל הזכויות שמורות</div>
   </div>
 </footer>

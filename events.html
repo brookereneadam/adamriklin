@@ -13,9 +13,9 @@
 <body>
 <header class="site-header">
   <nav class="nav container">
-    <a class="logo" href="index.html">אדם ריקלין<small>טיפול רגשי ומעגלים</small></a>
+    <a class="logo" href="index.html">אדם ריקלין<small>טיפול רגשי · לימוד בודהיזם</small></a>
     <button class="menu-btn" aria-label="תפריט">☰</button>
-    <ul><li><a class="link" href="index.html">בית</a></li><li><a class="link" href="index.html#about">אודות</a></li><li><a class="link" href="index.html#services">מה אני מציע</a></li><li><a class="link active" href="events.html">אירועים</a></li><li><a class="link" href="contact.html">יצירת קשר</a></li></ul>
+    <ul><li><a class="link" href="index.html">בית</a></li><li><a class="link" href="index.html#about">אודות</a></li><li><a class="link" href="index.html#services">מה אני מציע</a></li><li><a class="link" href="course.html">קורסים</a></li><li><a class="link active" href="events.html">אירועים</a></li><li><a class="link" href="contact.html">יצירת קשר</a></li></ul>
   </nav>
 </header>
 
@@ -48,8 +48,10 @@
     <form id="signup-form">
       <div class="field"><label for="s-name">שם מלא</label><input id="s-name" name="name" required></div>
       <div class="field"><label for="s-phone">טלפון</label><input id="s-phone" name="phone" type="tel" required></div>
+      <div class="field"><label for="s-email">אימייל (לא חובה)</label><input id="s-email" name="email" type="email"></div>
       <div class="field"><label for="s-count">מספר משתתפים</label><select id="s-count" name="count"><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
       <div class="field"><label for="s-notes">הערות (לא חובה)</label><textarea id="s-notes" name="notes" style="min-height:80px"></textarea></div>
+      <div class="field check"><input type="checkbox" id="s-consent" name="consent" value="yes"><label for="s-consent">אשמח לקבל עדכונים על אירועים וקורסים חדשים</label></div>
       <button class="btn btn-wa" type="submit" style="width:100%;justify-content:center">שליחת הרשמה בוואטסאפ</button>
       <p class="form-note" style="margin-top:10px">בלחיצה ייפתח וואטסאפ עם הודעה מוכנה – רק ללחוץ "שלח".</p>
     </form>
@@ -57,8 +59,8 @@
 </div>
 <footer class="site-footer">
   <div class="container footer-grid">
-    <div><strong>אדם ריקלין</strong><br>טיפול רגשי · מעגלים · סדנאות</div>
-    <div><a href="contact.html">יצירת קשר</a> · <a href="events.html">אירועים</a> · <a data-wa href="#">וואטסאפ</a></div>
+    <div><strong>אדם ריקלין</strong><br>טיפול רגשי · לימוד בודהיזם · מעגלים</div>
+    <div><a href="contact.html">יצירת קשר</a> · <a href="course.html">קורסים</a> · <a href="events.html">אירועים</a> · <a data-wa href="#">וואטסאפ</a></div>
     <div>© <span id="yr"></span> כל הזכויות שמורות</div>
   </div>
 </footer>
