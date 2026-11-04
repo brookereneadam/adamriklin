@@ -199,3 +199,12 @@ canvas.sparkles[hidden]{display:none}
 .motion-toggle.is-off .i-play{display:block}
 @media (max-width:760px){.deco{opacity:.16}.deco-glow-gold,.deco-glow-lilac{opacity:1}.deco-moon,.deco-branch{opacity:.24}}
 @media print{canvas.sparkles,.depth,.motion-toggle{display:none}}
+
+/* testimonials */
+.quote{margin:0;position:relative;display:flex;flex-direction:column;gap:14px;padding-top:58px}
+.quote::before{content:"”"/"";position:absolute;top:8px;inset-inline-start:24px;font-size:4rem;line-height:1;color:var(--lilac)}
+.quote blockquote{margin:0;flex:1}
+.quote blockquote p{margin:0}
+.quote figcaption{font-size:.92rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+.quote figcaption strong{color:var(--ink)}
+.sample-tag{position:absolute;top:20px;inset-inline-end:20px;background:var(--lavender);color:var(--purple);border-radius:999px;padding:2px 12px;font-size:.8rem;font-weight:500}

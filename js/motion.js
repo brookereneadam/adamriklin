@@ -24,8 +24,8 @@
       layer.className = "depth";
       layer.setAttribute("aria-hidden", "true");
       SETS[i % SETS.length].forEach(([kind, side, top, size, speed, rot, base = 0]) => {
-        // בעמודים הפנימיים הענף היה נוגע בכותרת
-        if (kind === "branch" && i === 0 && !section.classList.contains("hero")) return;
+        // הענף התלוי מתאים רק לראש העמוד, בשאר המקומות הוא נוגע בכותרות
+        if (base && !section.classList.contains("hero")) return;
         const el = document.createElement("div");
         const px = size * (innerWidth < 760 ? .55 : 1);
         el.className = "deco deco-" + kind;
