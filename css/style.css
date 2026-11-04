@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500&display=swap");
 :root{
   --bg:#fbf6ee; --surface:#fffdf9; --ink:#3d352e; --muted:#62584e;
   --sage:#66704c; --sage-dark:#4d5639; --sand:#f2e7d8; --accent:#c98b5e; --clay:#a4552f; --clay-dark:#86431f;
@@ -146,9 +145,6 @@ button.cal-day{font:inherit;padding:0;width:100%}
 .ico-people{background-image:url(../images/ico-people.svg)}
 .ico-check{background-image:url(../images/ico-check.svg)}
 
-/* elegant headings */
-h1,h2:not(.h3){font-family:"Frank Ruhl Libre","Heebo",serif;font-weight:400}
-
 /* moon and leaf details under headings */
 .section:not(.closing) .container>h2::after,.section .two-col>div:not(.card)>h2::after{content:"";display:block;width:96px;height:20px;margin-top:12px;background:url(../images/orn-moon.svg) center/contain no-repeat}
 .section.alt .container>h2::after,.section.alt .two-col>div:not(.card)>h2::after{background-image:url(../images/orn-leaf.svg)}
@@ -166,3 +162,40 @@ main>.section:first-of-type h1::before{content:"";display:block;width:60px;heigh
 /* soft layers into the footer */
 main::after{content:"";display:block;height:90px;background:url(../images/waves-layered.svg) center/100% 100% no-repeat}
 .site-footer::before{margin-top:0}
+
+/* depth and movement */
+:root{--gold:#c8963e;--shadow:0 18px 44px rgba(92,70,50,.11),0 3px 10px rgba(92,70,50,.05)}
+.section{position:relative}
+.section>.container,.hero>.container{position:relative;z-index:1}
+.section.alt{background:linear-gradient(180deg,var(--lavender) 0,var(--lilac-soft) 50%,var(--lavender) 100%)}
+.card{background:linear-gradient(165deg,#fff 0,var(--surface) 55%,#fdf7f0 100%);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+.arch-card:hover{transform:translateY(-6px);box-shadow:0 26px 54px rgba(92,70,50,.16),0 4px 12px rgba(92,70,50,.06)}
+.portrait{box-shadow:0 30px 60px rgba(90,71,132,.22),0 8px 20px rgba(92,70,50,.1)}
+.arch::before{transform:rotate(var(--spin,0deg))}
+.depth{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.deco{position:absolute;background:center/contain no-repeat;opacity:.34;will-change:transform}
+.deco-mandala{background-image:url(../images/deco-mandala.svg)}
+.deco-moon{background-image:url(../images/deco-moon.svg);opacity:.5}
+.deco-branch{background-image:url(../images/deco-branch.svg);opacity:.46}
+.deco-glow-gold,.deco-glow-lilac{border-radius:50%;opacity:1}
+.deco-glow-gold{background:radial-gradient(closest-side,rgba(232,190,120,.3),transparent)}
+.deco-glow-lilac{background:radial-gradient(closest-side,rgba(180,155,225,.34),transparent)}
+.thread{position:absolute;top:10px;left:0;width:100%;height:80px;overflow:visible;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;opacity:.75}
+.thread-tip{position:absolute;top:10px;left:-11px;width:22px;height:22px;margin-top:-11px;opacity:0;background:url(../images/sparkles.svg) 0 0/40px no-repeat}
+html:not(.motion) .thread-tip{display:none}
+canvas.sparkles{position:fixed;inset:0;width:100%;height:100%;z-index:15;pointer-events:none}
+canvas.sparkles[hidden]{display:none}
+.motion .reveal:not(.in){opacity:0;transform:translateY(38px) scale(.98)}
+.motion .reveal{transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+.motion .deco-glow-gold,.motion .deco-glow-lilac{animation:breathe 9s ease-in-out infinite alternate}
+.motion .btn-primary{position:relative;overflow:hidden}
+.motion .btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.34) 50%,transparent 65%);transform:translateX(-120%);animation:sheen 7s ease-in-out infinite;pointer-events:none}
+@keyframes breathe{from{scale:.9}to{scale:1.14}}
+@keyframes sheen{0%,72%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.motion-toggle{position:fixed;bottom:28px;inset-inline-end:20px;z-index:30;width:40px;height:40px;padding:0;display:grid;place-items:center;border-radius:50%;border:1px solid var(--purple);background:var(--surface);box-shadow:var(--shadow);cursor:pointer}
+.motion-toggle[hidden]{display:none}
+.motion-toggle svg{width:20px;height:20px;fill:none;stroke:var(--purple);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.motion-toggle .i-play,.motion-toggle.is-off .i-pause{display:none}
+.motion-toggle.is-off .i-play{display:block}
+@media (max-width:760px){.deco{opacity:.16}.deco-glow-gold,.deco-glow-lilac{opacity:1}.deco-moon,.deco-branch{opacity:.24}}
+@media print{canvas.sparkles,.depth,.motion-toggle{display:none}}

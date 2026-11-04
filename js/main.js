@@ -38,6 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// תנועה ועומק: נטען בנפרד כדי שהאתר יעבוד גם בלעדיו
+document.head.appendChild(Object.assign(document.createElement("script"), { src: "js/motion.js" }));
+
 // אייקון קישוטי שקוראי מסך מדלגים עליו
 const ICONS = { "📅": "calendar", "🕖": "clock", "📍": "pin", "👥": "people" };
 function icon(emoji) {
