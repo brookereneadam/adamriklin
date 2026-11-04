@@ -6,7 +6,7 @@
   --wa:#0e7c5a;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
+html{scroll-behavior:smooth;scroll-padding-top:116px}
 body{margin:0;font-family:"Heebo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:17px}
 h1,h2,h3{font-weight:500;line-height:1.25;margin:0 0 .5em;color:var(--sage-dark)}
 h1{font-size:clamp(2.2rem,5.5vw,3.6rem)} h2{font-size:clamp(1.6rem,3.5vw,2.2rem)} h3{font-size:1.25rem}
@@ -18,7 +18,7 @@ img{max-width:100%;display:block}
 .lead{font-size:1.15rem;color:var(--muted);max-width:60ch}
 
 /* header */
-.site-header{position:sticky;top:0;z-index:20;background:rgba(251,246,238,.94);backdrop-filter:blur(8px);border-bottom:2px solid var(--lilac)}
+.site-header{position:sticky;top:0;z-index:20;background:rgba(251,246,238,.94);backdrop-filter:blur(8px);}
 .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
 .logo{display:flex;align-items:center;gap:10px;font-size:1.4rem;font-weight:700;color:var(--sage-dark);text-decoration:none}
 .logo small{display:block;font-size:.75rem;font-weight:400;color:var(--muted);margin-top:-4px}
@@ -28,7 +28,7 @@ img{max-width:100%;display:block}
 .menu-btn{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--ink)}
 @media (max-width:760px){
   .menu-btn{display:block}
-  .nav ul{display:none;position:absolute;top:70px;inset-inline:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line)}
+  .nav ul{display:none;position:absolute;top:94px;inset-inline:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line)}
   .nav ul.open{display:flex}
   .nav ul li a{display:block;padding:14px 16px}
 }
@@ -134,3 +134,4 @@ button.cal-day{font:inherit;padding:0;width:100%}
 .closing{text-align:center}
 .closing::before{content:"";display:block;width:64px;height:64px;margin:0 auto 18px;background:url(../images/icon-sun.svg) center/contain no-repeat}
 .site-footer::before{content:"";display:block;height:26px;margin-bottom:36px;background:url(../images/band.svg) center repeat-x}
+.site-header::after{content:"";display:block;height:24px;background:url(../images/nav-pattern.svg) center repeat-x}
