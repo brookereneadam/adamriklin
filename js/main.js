@@ -3,6 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const btn = document.querySelector(".menu-btn");
   const menu = document.querySelector(".nav ul");
   if (btn && menu) btn.addEventListener("click", () => btn.setAttribute("aria-expanded", menu.classList.toggle("open")));
+  if (btn && menu) document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && menu.classList.contains("open")) {
+      menu.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      btn.focus();
+    }
+  });
 
   // אזור הודעות שקוראי מסך מקריאים
   document.body.insertAdjacentHTML("beforeend", `<p class="site-status" id="site-status" role="status"></p>`);
