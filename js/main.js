@@ -11,6 +11,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // אימייל נדרש למי שמבקש עדכונים
+  document.querySelectorAll('input[name="consent"]').forEach(box => {
+    const form = box.form;
+    const email = form.querySelector('input[name="email"]');
+    const label = form.querySelector(`label[for="${email.id}"]`);
+    const sync = () => {
+      email.required = box.checked;
+      label.textContent = box.checked ? "אימייל (נדרש לקבלת עדכונים)" : "אימייל (לא חובה)";
+    };
+    box.addEventListener("change", sync);
+    form.addEventListener("reset", () => setTimeout(sync));
+  });
+
   // אזור הודעות שקוראי מסך מקריאים
   document.body.insertAdjacentHTML("beforeend", `<p class="site-status" id="site-status" role="status"></p>`);
 

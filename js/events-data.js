@@ -3,6 +3,15 @@
 // date: שנה-חודש-יום | time: שעה | price: טקסט חופשי | spots: מספר מקומות (לא חובה)
 const EVENTS = [
   {
+    id: "movie-night-nov-2026",
+    title: "ערב סרט: Ali G, Who iz I?‎",
+    date: "2026-11-12",
+    time: "21:00",
+    location: "המיקום יישלח בהרשמה",
+    tags: ["ערב סרט"],
+    description: "מוזמנים לערב סרט משותף.",
+  },
+  {
     id: "circle-nov-2026",
     title: "מעגל שיתוף ערב",
     date: "2026-11-19",

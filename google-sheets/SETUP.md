@@ -22,3 +22,18 @@
 | קורס מוקלט – מתעניינים (recorded course interest) | Clicks on "buy the recorded course" |
 
 > If you change `Code.gs` later: **Deploy → Manage deployments → ✏️ → Version: New version**, so the same URL stays.
+
+## Email updates for new events (about 5 minutes)
+
+When a new event is added to the site, everyone in "אנשי קשר" with "כן" in the last column and an email address gets one email.
+
+1. In the sheet, delete any test rows from "אנשי קשר" so test addresses don't get emails.
+2. Open **Extensions → Apps Script**, replace everything with the new `Code.gs`, and save.
+3. Choose `setupEventEmails` from the function list and click **Run**. Approve the new permissions.
+   Events already on the site count as announced, and an hourly check starts.
+4. Click **Deploy → Manage deployments → ✏️ → Version: New version → Deploy**. The address stays the same, and the unsubscribe link needs this step.
+5. Choose `sendTestEmail` and click **Run**. A sample email goes only to the account running the script.
+
+New events go out within about an hour of being live. The "מיילים שנשלחו" tab lists what was sent. Unsubscribing changes the person's last column in "אנשי קשר" to "לא". Google allows about 100 emails a day on a regular account, and anything over that goes out the next day.
+
+If the site moves to a new domain, update `SITE_URL` in `Code.gs` and repeat step 4.
