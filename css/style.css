@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500&display=swap");
 :root{
   --bg:#fbf6ee; --surface:#fffdf9; --ink:#3d352e; --muted:#62584e;
   --sage:#66704c; --sage-dark:#4d5639; --sand:#f2e7d8; --accent:#c98b5e; --clay:#a4552f; --clay-dark:#86431f;
@@ -134,4 +135,34 @@ button.cal-day{font:inherit;padding:0;width:100%}
 .closing{text-align:center}
 .closing::before{content:"";display:block;width:64px;height:64px;margin:0 auto 18px;background:url(../images/icon-sun.svg) center/contain no-repeat}
 .site-footer::before{content:"";display:block;height:26px;margin-bottom:36px;background:url(../images/band.svg) center repeat-x}
-.site-header::after{content:"";display:block;height:24px;background:url(../images/nav-pattern.svg) center repeat-x}
+.site-header::after{content:"";display:block;height:22px;background:url(../images/nav-pattern.svg) center repeat-x}
+
+/* line icons */
+.ico{display:inline-block;width:1.2em;height:1.2em;vertical-align:-.25em;background:center/contain no-repeat}
+.ico-pin{background-image:url(../images/ico-pin.svg)}
+.ico-calendar{background-image:url(../images/ico-calendar.svg)}
+.ico-clock{background-image:url(../images/ico-clock.svg)}
+.ico-screen{background-image:url(../images/ico-screen.svg)}
+.ico-people{background-image:url(../images/ico-people.svg)}
+.ico-check{background-image:url(../images/ico-check.svg)}
+
+/* elegant headings */
+h1,h2:not(.h3){font-family:"Frank Ruhl Libre","Heebo",serif;font-weight:400}
+
+/* moon and leaf details under headings */
+.section:not(.closing) .container>h2::after,.section .two-col>div:not(.card)>h2::after{content:"";display:block;width:96px;height:20px;margin-top:12px;background:url(../images/orn-moon.svg) center/contain no-repeat}
+.section.alt .container>h2::after,.section.alt .two-col>div:not(.card)>h2::after{background-image:url(../images/orn-leaf.svg)}
+
+main>.section:first-of-type .container>h2::after{display:none}
+
+/* soft header on inner pages */
+main>.section:first-of-type{padding-top:56px;background:linear-gradient(178deg,var(--lilac-soft) 0,var(--lavender) 170px,var(--bg) 430px)}
+main>.section:first-of-type h1::before{content:"";display:block;width:60px;height:60px;margin-bottom:12px;background:url(../images/icon-sun.svg) center/contain no-repeat}
+
+/* sparkles beside the portrait */
+.hero .portrait{position:relative}
+.hero .portrait::after{content:"";position:absolute;top:2%;inset-inline-start:-4%;width:58px;height:58px;background:url(../images/sparkles.svg) center/contain no-repeat}
+
+/* soft layers into the footer */
+main::after{content:"";display:block;height:90px;background:url(../images/waves-layered.svg) center/100% 100% no-repeat}
+.site-footer::before{margin-top:0}

@@ -39,8 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // אייקון קישוטי שקוראי מסך מדלגים עליו
+const ICONS = { "📅": "calendar", "🕖": "clock", "📍": "pin", "👥": "people" };
 function icon(emoji) {
-  return `<span aria-hidden="true">${emoji}</span>`;
+  return `<span class="ico ico-${ICONS[emoji]}" aria-hidden="true"></span>`;
 }
 
 // מודיע לקוראי מסך שהקישור נפתח בחלון חדש
