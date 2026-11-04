@@ -15,10 +15,10 @@
 <body>
 <a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
 <header class="site-header">
-  <nav class="nav container">
+  <nav class="nav container" aria-label="ניווט ראשי">
     <a class="logo" href="index.html"><img src="images/logo.svg" alt="" width="46" height="46"><span>אדם ריקלין<small>טיפול רגשי · לימוד בודהיזם</small></span></a>
     <button class="menu-btn" aria-label="תפריט" aria-expanded="false">☰</button>
-    <ul><li><a class="link" href="index.html">בית</a></li><li><a class="link" href="index.html#about">אודות</a></li><li><a class="link" href="index.html#services">מה אני מציע</a></li><li><a class="link" href="course.html">קורסים</a></li><li><a class="link" href="events.html">אירועים</a></li><li><a class="link active" href="contact.html">יצירת קשר</a></li></ul>
+    <ul><li><a class="link" href="index.html">בית</a></li><li><a class="link" href="index.html#about">אודות</a></li><li><a class="link" href="index.html#services">מה אני מציע</a></li><li><a class="link" href="course.html">קורסים</a></li><li><a class="link" href="events.html">אירועים</a></li><li><a class="link active" href="contact.html" aria-current="page">יצירת קשר</a></li></ul>
   </nav>
 </header>
 <main id="main">
@@ -29,16 +29,16 @@
       <h1>יצירת קשר</h1>
       <p class="lead">מלאו כמה פרטים וההודעה תיפתח בוואטסאפ, מוכנה לשליחה. אחזור אליכם בהקדם לתיאום שיחת היכרות.</p>
       <div class="card" style="margin-top:24px">
-        <h3>פרטים</h3>
-        <p>📍 [כתובת הקליניקה]<br>💻 מפגשים גם אונליין<br>🕘 [ימים ושעות]</p>
+        <h2 class="h3">פרטים</h2>
+        <p><span aria-hidden="true">📍</span> [כתובת הקליניקה]<br><span aria-hidden="true">💻</span> מפגשים גם אונליין<br><span aria-hidden="true">🕘</span> [ימים ושעות]</p>
         <a class="btn btn-wa" data-wa href="#">הודעה מהירה בוואטסאפ</a>
       </div>
     </div>
     <div class="card">
       <form id="inquiry-form">
-        <div class="field"><label for="name">שם</label><input id="name" name="name" required></div>
-        <div class="field"><label for="phone">טלפון</label><input id="phone" name="phone" type="tel" required></div>
-        <div class="field"><label for="email">אימייל (לא חובה)</label><input id="email" name="email" type="email"></div>
+        <div class="field"><label for="name">שם</label><input id="name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="phone">טלפון</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
+        <div class="field"><label for="email">אימייל (לא חובה)</label><input id="email" name="email" type="email" autocomplete="email"></div>
         <div class="field"><label for="topic">במה אפשר לעזור?</label>
           <select id="topic" name="topic"><option value="">בחירה…</option><option>טיפול אישי</option><option>טיפול זוגי</option><option>מעגלים וסדנאות</option><option>קורס מבוא לבודהיזם</option><option>אחר</option></select></div>
         <div class="field"><label for="format">העדפה</label>

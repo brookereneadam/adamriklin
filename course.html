@@ -15,10 +15,10 @@
 <body>
 <a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
 <header class="site-header">
-  <nav class="nav container">
+  <nav class="nav container" aria-label="ניווט ראשי">
     <a class="logo" href="index.html"><img src="images/logo.svg" alt="" width="46" height="46"><span>אדם ריקלין<small>טיפול רגשי · לימוד בודהיזם</small></span></a>
     <button class="menu-btn" aria-label="תפריט" aria-expanded="false">☰</button>
-    <ul><li><a class="link" href="index.html">בית</a></li><li><a class="link" href="index.html#about">אודות</a></li><li><a class="link" href="index.html#services">מה אני מציע</a></li><li><a class="link active" href="course.html">קורסים</a></li><li><a class="link" href="events.html">אירועים</a></li><li><a class="link" href="contact.html">יצירת קשר</a></li></ul>
+    <ul><li><a class="link" href="index.html">בית</a></li><li><a class="link" href="index.html#about">אודות</a></li><li><a class="link" href="index.html#services">מה אני מציע</a></li><li><a class="link active" href="course.html" aria-current="page">קורסים</a></li><li><a class="link" href="events.html">אירועים</a></li><li><a class="link" href="contact.html">יצירת קשר</a></li></ul>
   </nav>
 </header>
 <main id="main">
@@ -53,7 +53,7 @@
       <h3>למי זה מתאים?</h3>
       <p>לכל מי שסקרן לגבי בודהיזם ומדיטציה, למי שמחפש שקט ובהירות, ולמי שרוצה דרך תרגול מעשית שמתחברת לחיים עצמם.</p>
       <h3>מה כולל?</h3>
-      <p>✔ מפגשי לימוד ותרגול<br>✔ מדיטציות מודרכות<br>✔ חומרי קריאה<br>✔ שאלות ותשובות עם אדם</p>
+      <p><span aria-hidden="true">✔</span> מפגשי לימוד ותרגול<br><span aria-hidden="true">✔</span> מדיטציות מודרכות<br><span aria-hidden="true">✔</span> חומרי קריאה<br><span aria-hidden="true">✔</span> שאלות ותשובות עם אדם</p>
     </div>
   </div>
 </section>
@@ -73,7 +73,7 @@
     <div>
       <h2>קורס מוקלט – בזמן שלך</h2>
       <p class="lead">כל מפגשי הקורס, מוקלטים ומסודרים לפי שיעורים. צופים מתי שנוח ובקצב שלכם, וחוזרים לשיעורים כמה שרוצים.</p>
-      <p>✔ [___] שיעורים מוקלטים<br>✔ מדיטציות מודרכות להורדה<br>✔ גישה ללא הגבלת זמן</p>
+      <p><span aria-hidden="true">✔</span> [___] שיעורים מוקלטים<br><span aria-hidden="true">✔</span> מדיטציות מודרכות להורדה<br><span aria-hidden="true">✔</span> גישה ללא הגבלת זמן</p>
     </div>
     <div class="card" style="text-align:center">
       <h3>מבוא לבודהיזם – הקורס המלא</h3>
@@ -85,15 +85,15 @@
 </section>
 
 </main>
-<div class="modal" id="signup-modal" role="dialog" aria-modal="true" aria-labelledby="signup-title">
+<div class="modal" id="signup-modal" role="dialog" aria-modal="true" aria-labelledby="signup-title" aria-describedby="signup-meta">
   <div class="modal-box">
     <button class="modal-close" aria-label="סגירה">×</button>
     <h2 id="signup-title"></h2>
     <p class="form-note" id="signup-meta"></p>
     <form id="signup-form">
-      <div class="field"><label for="s-name">שם מלא</label><input id="s-name" name="name" required></div>
-      <div class="field"><label for="s-phone">טלפון</label><input id="s-phone" name="phone" type="tel" required></div>
-      <div class="field"><label for="s-email">אימייל (לא חובה)</label><input id="s-email" name="email" type="email"></div>
+      <div class="field"><label for="s-name">שם מלא</label><input id="s-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="s-phone">טלפון</label><input id="s-phone" name="phone" type="tel" autocomplete="tel" required></div>
+      <div class="field"><label for="s-email">אימייל (לא חובה)</label><input id="s-email" name="email" type="email" autocomplete="email"></div>
             <div class="field"><label for="s-notes">הערות (לא חובה)</label><textarea id="s-notes" name="notes" style="min-height:80px"></textarea></div>
       <div class="field check"><input type="checkbox" id="s-consent" name="consent" value="yes"><label for="s-consent">אשמח לקבל עדכונים על אירועים וקורסים חדשים</label></div>
       <button class="btn btn-wa" type="submit" style="width:100%;justify-content:center">שליחת הרשמה בוואטסאפ</button>

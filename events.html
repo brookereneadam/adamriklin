@@ -15,10 +15,10 @@
 <body>
 <a class="skip-link" href="#main">דילוג לתוכן הראשי</a>
 <header class="site-header">
-  <nav class="nav container">
+  <nav class="nav container" aria-label="ניווט ראשי">
     <a class="logo" href="index.html"><img src="images/logo.svg" alt="" width="46" height="46"><span>אדם ריקלין<small>טיפול רגשי · לימוד בודהיזם</small></span></a>
     <button class="menu-btn" aria-label="תפריט" aria-expanded="false">☰</button>
-    <ul><li><a class="link" href="index.html">בית</a></li><li><a class="link" href="index.html#about">אודות</a></li><li><a class="link" href="index.html#services">מה אני מציע</a></li><li><a class="link" href="course.html">קורסים</a></li><li><a class="link active" href="events.html">אירועים</a></li><li><a class="link" href="contact.html">יצירת קשר</a></li></ul>
+    <ul><li><a class="link" href="index.html">בית</a></li><li><a class="link" href="index.html#about">אודות</a></li><li><a class="link" href="index.html#services">מה אני מציע</a></li><li><a class="link" href="course.html">קורסים</a></li><li><a class="link active" href="events.html" aria-current="page">אירועים</a></li><li><a class="link" href="contact.html">יצירת קשר</a></li></ul>
   </nav>
 </header>
 <main id="main">
@@ -31,13 +31,13 @@
       <div class="card">
         <div class="cal-head">
           <button class="cal-nav" id="cal-prev" aria-label="חודש קודם">→</button>
-          <h3 id="cal-title"></h3>
+          <h2 class="h3" id="cal-title" aria-live="polite"></h2>
           <button class="cal-nav" id="cal-next" aria-label="חודש הבא">←</button>
         </div>
-        <div class="cal-grid" id="cal-grid"></div>
+        <div class="cal-grid" id="cal-grid" role="group" aria-labelledby="cal-title"></div>
       </div>
       <div>
-        <h3 id="list-title"></h3>
+        <h2 class="h3" id="list-title" tabindex="-1"></h2>
         <div class="event-list" id="event-list"></div>
       </div>
     </div>
@@ -45,15 +45,15 @@
 </section>
 
 </main>
-<div class="modal" id="signup-modal" role="dialog" aria-modal="true" aria-labelledby="signup-title">
+<div class="modal" id="signup-modal" role="dialog" aria-modal="true" aria-labelledby="signup-title" aria-describedby="signup-meta">
   <div class="modal-box">
     <button class="modal-close" aria-label="סגירה">×</button>
     <h2 id="signup-title"></h2>
     <p class="form-note" id="signup-meta"></p>
     <form id="signup-form">
-      <div class="field"><label for="s-name">שם מלא</label><input id="s-name" name="name" required></div>
-      <div class="field"><label for="s-phone">טלפון</label><input id="s-phone" name="phone" type="tel" required></div>
-      <div class="field"><label for="s-email">אימייל (לא חובה)</label><input id="s-email" name="email" type="email"></div>
+      <div class="field"><label for="s-name">שם מלא</label><input id="s-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="s-phone">טלפון</label><input id="s-phone" name="phone" type="tel" autocomplete="tel" required></div>
+      <div class="field"><label for="s-email">אימייל (לא חובה)</label><input id="s-email" name="email" type="email" autocomplete="email"></div>
       <div class="field"><label for="s-count">מספר משתתפים</label><select id="s-count" name="count"><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
       <div class="field"><label for="s-notes">הערות (לא חובה)</label><textarea id="s-notes" name="notes" style="min-height:80px"></textarea></div>
       <div class="field check"><input type="checkbox" id="s-consent" name="consent" value="yes"><label for="s-consent">אשמח לקבל עדכונים על אירועים וקורסים חדשים</label></div>
