@@ -97,6 +97,7 @@ const CONTACTS_TAB = "אנשי קשר";
 const LOG_TAB = "מיילים שנשלחו";
 const LOG_HEADERS = ["תאריך", "מזהה אירוע", "אירוע", "אימייל", "סטטוס"];
 const WEEKDAYS = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"];
+const MONTHS = ["ינואר", "פברואר", "מרץ", "אפריל", "מאי", "יוני", "יולי", "אוגוסט", "ספטמבר", "אוקטובר", "נובמבר", "דצמבר"];
 
 // Run once from the editor. Everything on the site right now counts as already
 // announced, so only events added after this get emailed.
@@ -192,21 +193,26 @@ function sendOne_(ev, email) {
   const unsubscribe = `${SITE_URL}/unsubscribe.html#u=${u}&t=${unsubscribeToken_(email)}`;
   const eventsPage = `${SITE_URL}/events.html`;
   const [y, m, d] = ev.date.split("-").map(Number);
-  const when = `יום ${WEEKDAYS[new Date(y, m - 1, d).getDay()]}, ${d}.${m}.${y}${ev.time ? ` · ${ev.time}` : ""}`;
-  const where = [ev.location, ev.price].filter(String).join(" · ");
+  const day = `יום ${WEEKDAYS[new Date(y, m - 1, d).getDay()]}, ${d} ב${MONTHS[m - 1]} ${y}`;
+  const details = [["מתי", day], ["שעה", ev.time], ["איפה", ev.location], ["מחיר", ev.price]].filter(r => r[1]);
+  const invite = `${SENDER_NAME} מזמין אתכם:`;
+  const closing = "אשמח לראות אתכם,";
   const contact = `נשלח על ידי ${SENDER_NAME}. לשאלות: ${REPLY_TO}`;
-  const plain = [`אירוע חדש: ${ev.title}`, when, where, ev.description, "", `לפרטים ולהרשמה: ${eventsPage}`, "",
+  const plain = [invite, ev.title, "", ...details.map(r => `${r[0]}: ${r[1]}`), "", ev.description, "",
+    `לפרטים ולהרשמה: ${eventsPage}`, "", closing, "אדם", "",
     "קיבלתם את המייל כי ביקשתם עדכונים באתר.", contact, `להסרה מהרשימה: ${unsubscribe}`].join("\n");
+  const rows = details.map(r => `<p style="margin:0 0 4px"><strong>${esc_(r[0])}:</strong> ${esc_(r[1])}</p>`).join("");
   const html = `<div dir="rtl" style="font-family:Arial,sans-serif;font-size:16px;line-height:1.6;color:#3d352e;max-width:560px">
-    <h2 style="color:#4d5639;margin:0 0 12px">${esc_(ev.title)}</h2>
-    <p style="margin:0 0 4px"><strong>${esc_(when)}</strong></p>
-    ${where ? `<p style="margin:0 0 12px">${esc_(where)}</p>` : ""}
-    ${ev.description ? `<p>${esc_(ev.description)}</p>` : ""}
-    <p><a href="${eventsPage}" style="color:#86431f"><strong>לפרטים ולהרשמה</strong></a></p>
+    <p style="margin:0 0 4px;color:#5a4784;font-size:18px">${esc_(invite)}</p>
+    <h2 style="color:#4d5639;font-size:26px;line-height:1.3;margin:0 0 18px">${esc_(ev.title)}</h2>
+    <div style="background:#f2ecf8;border-radius:12px;padding:14px 18px;margin:0 0 18px">${rows}</div>
+    ${ev.description ? `<p style="margin:0 0 20px">${esc_(ev.description)}</p>` : ""}
+    <p style="margin:0 0 24px"><a href="${eventsPage}" style="background:#a4552f;color:#ffffff;text-decoration:none;font-weight:bold;padding:12px 26px;border-radius:999px;display:inline-block">לפרטים ולהרשמה</a></p>
+    <p style="margin:0">${esc_(closing)}<br>אדם</p>
     <hr style="border:0;border-top:1px solid #e9dfd0;margin:24px 0 12px">
     <p style="font-size:13px;color:#62584e">קיבלתם את המייל כי ביקשתם עדכונים באתר.<br>${esc_(contact)}<br>
     <a href="${unsubscribe}" style="color:#62584e">להסרה מהרשימה</a></p></div>`;
-  MailApp.sendEmail({ to: email, subject: `פרסומת: אירוע חדש – ${ev.title}`, body: plain, htmlBody: html, name: SENDER_NAME, replyTo: REPLY_TO });
+  MailApp.sendEmail({ to: email, subject: `פרסומת: ${SENDER_NAME} מזמין אתכם – ${ev.title}`, body: plain, htmlBody: html, name: SENDER_NAME, replyTo: REPLY_TO });
 }
 
 function unsubscribeToken_(email) {
