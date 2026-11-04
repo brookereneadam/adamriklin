@@ -12,32 +12,42 @@
 
   // שכבות קישוט בעומקים שונים
   const SETS = [
-    [["mandala", "end", "6%", 360, .16, .05], ["glow-gold", "start", "50%", 420, .08, 0], ["branch", "start", "12%", 150, .3, 0]],
-    [["moon", "start", "10%", 240, .24, -.02], ["glow-lilac", "end", "30%", 460, .1, 0], ["branch", "end", "48%", 130, .36, .01]],
+    [["mandala", "end", "6%", 360, .16, .05], ["glow-gold", "start", "50%", 420, .08, 0], ["branch", "start", -.32, 200, .12, 0, -75]],
+    [["moon", "start", "10%", 240, .24, -.02], ["glow-lilac", "end", "30%", 460, .1, 0], ["branch", "end", "36%", 210, .3, .01]],
     [["mandala", "start", "30%", 300, .2, -.05], ["glow-gold", "end", "4%", 380, .1, 0], ["moon", "end", "56%", 150, .32, .02]]
   ];
 
   function buildDepth() {
+    let eligible = 0;
     document.querySelectorAll("main > section").forEach((section, i) => {
       const layer = document.createElement("div");
       layer.className = "depth";
       layer.setAttribute("aria-hidden", "true");
-      SETS[i % SETS.length].forEach(([kind, side, top, size, speed, rot]) => {
+      SETS[i % SETS.length].forEach(([kind, side, top, size, speed, rot, base = 0]) => {
+        // בעמודים הפנימיים הענף היה נוגע בכותרת
+        if (kind === "branch" && i === 0 && !section.classList.contains("hero")) return;
         const el = document.createElement("div");
         const px = size * (innerWidth < 760 ? .55 : 1);
         el.className = "deco deco-" + kind;
-        el.style.cssText = `top:${top};width:${px}px;height:${kind === "branch" ? px * 2 : px}px;inset-inline-${side}:${-px * .35}px`;
+        const edge = kind !== "branch" ? -px * .35 : base ? px * .15 : -px * .22;
+        el.style.cssText = `top:${typeof top === "number" ? px * top + "px" : top};width:${px}px;height:${kind === "branch" ? px * 2 : px}px;inset-inline-${side}:${edge}px`;
+        if (base) el.style.transform = `rotate(${base}deg)`;
         layer.appendChild(el);
-        decos.push({ el, section, speed, rot });
+        decos.push({ el, section, speed, rot, base });
       });
-      if (section.classList.contains("section") && i > 0) {
+      // הקו רק בחלק מהאזורים, והכוכב רק בראשון שבהם
+      if (section.classList.contains("section") && i > 0 && eligible++ % 2 === 0) {
         const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttribute("class", "thread");
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
         svg.appendChild(path);
-        const tip = document.createElement("div");
-        tip.className = "thread-tip";
-        layer.append(svg, tip);
+        layer.append(svg);
+        let tip = null;
+        if (!threads.length) {
+          tip = document.createElement("div");
+          tip.className = "thread-tip";
+          layer.append(tip);
+        }
         threads.push({ section, svg, path, tip, len: 0 });
       }
       section.prepend(layer);
@@ -129,15 +139,16 @@
       const box = d.section.getBoundingClientRect();
       if (box.bottom < -300 || box.top > vh + 300) return;
       const c = box.top + box.height / 2 - vh / 2;
-      d.el.style.transform = `translate3d(0,${(-c * d.speed).toFixed(1)}px,0) rotate(${(-c * d.rot).toFixed(1)}deg)`;
+      d.el.style.transform = `translate3d(0,${(-c * d.speed).toFixed(1)}px,0) rotate(${(d.base - c * d.rot).toFixed(1)}deg)`;
     });
     threads.forEach(t => {
       const top = t.section.getBoundingClientRect().top;
-      const p = clamp((vh * .92 - top) / (vh * .62), 0, 1);
+      const p = clamp((vh - top) / (vh * .92), 0, 1);
       t.path.style.strokeDashoffset = t.len * (1 - p);
+      if (!t.tip) return;
       const point = t.path.getPointAtLength(t.len * p);
-      t.tip.style.opacity = p > .01 ? 1 : 0;
-      t.tip.style.transform = `translate3d(${point.x.toFixed(1)}px,${point.y.toFixed(1)}px,0) rotate(${(p * 360).toFixed(0)}deg)`;
+      t.tip.style.opacity = p > .01 && p < .99 ? 1 : 0;
+      t.tip.style.transform = `translate3d(${point.x.toFixed(1)}px,${point.y.toFixed(1)}px,0) rotate(${(p * 90).toFixed(0)}deg)`;
     });
     if (hero) {
       const p = clamp(y / hero.offsetHeight, 0, 1);
@@ -170,8 +181,8 @@
     if (on && !running) { running = true; lastY = -1; requestAnimationFrame(frame); }
     if (!on) {
       running = false;
-      decos.forEach(d => { d.el.style.transform = ""; });
-      threads.forEach(t => { t.path.style.strokeDashoffset = 0; t.tip.style.opacity = 0; });
+      decos.forEach(d => { d.el.style.transform = d.base ? `rotate(${d.base}deg)` : ""; });
+      threads.forEach(t => { t.path.style.strokeDashoffset = 0; if (t.tip) t.tip.style.opacity = 0; });
       [heroText, heroArch].forEach(el => { if (el) { el.style.transform = ""; el.style.opacity = ""; } });
       if (hero) hero.style.removeProperty("--spin");
     }
