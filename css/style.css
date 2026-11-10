@@ -49,6 +49,7 @@ img{max-width:100%;display:block}
 /* cards */
 .grid{display:grid;gap:24px}
 .grid-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
 .card{background:var(--surface);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);border:1px solid var(--line)}
 .card .icon{font-size:2rem;margin-bottom:8px}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
@@ -199,6 +200,8 @@ canvas.sparkles[hidden]{display:none}
 .quote::before{content:"”"/"";position:absolute;top:8px;inset-inline-start:24px;font-size:4rem;line-height:1;color:var(--lilac)}
 .quote blockquote{margin:0;flex:1}
 .quote blockquote p{margin:0}
+.quote blockquote p+p{margin-top:.8em}
+.quote-feature{line-height:1.8}
 .quote figcaption{font-size:.92rem;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
 .quote figcaption strong{color:var(--ink)}
 .sample-tag{position:absolute;top:20px;inset-inline-end:20px;background:var(--lavender);color:var(--purple);border-radius:999px;padding:2px 12px;font-size:.8rem;font-weight:500}
