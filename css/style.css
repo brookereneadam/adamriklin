@@ -172,6 +172,7 @@ main::after{content:"";display:block;height:90px;background:url(../images/waves-
 .depth{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
 .deco{position:absolute;background:center/contain no-repeat;opacity:.34;will-change:transform}
 .deco-mandala{background-image:url(../images/deco-mandala.svg)}
+.deco-enso{background-image:url(../images/deco-enso.svg);opacity:.3}
 .deco-moon{background-image:url(../images/deco-moon.svg);opacity:.5}
 .deco-branch{background-image:url(../images/deco-branch.svg);opacity:.72}
 .deco-glow-gold,.deco-glow-lilac{border-radius:50%;opacity:1}
@@ -183,16 +184,18 @@ canvas.sparkles[hidden]{display:none}
 .motion .reveal:not(.in){opacity:0;transform:translateY(38px) scale(.98)}
 .motion .reveal{transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
 .motion .deco-glow-gold,.motion .deco-glow-lilac{animation:breathe 9s ease-in-out infinite alternate}
+.motion .deco-enso{animation:turn 80s linear infinite}
 .motion .btn-primary{position:relative;overflow:hidden}
 .motion .btn-primary::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.34) 50%,transparent 65%);transform:translateX(-120%);animation:sheen 7s ease-in-out infinite;pointer-events:none}
 @keyframes breathe{from{scale:.9}to{scale:1.14}}
+@keyframes turn{to{rotate:360deg}}
 @keyframes sheen{0%,72%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
 .motion-toggle{position:fixed;bottom:28px;inset-inline-end:20px;z-index:30;width:40px;height:40px;padding:0;display:grid;place-items:center;border-radius:50%;border:1px solid var(--purple);background:var(--surface);box-shadow:var(--shadow);cursor:pointer}
 .motion-toggle[hidden]{display:none}
 .motion-toggle svg{width:20px;height:20px;fill:none;stroke:var(--purple);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .motion-toggle .i-play,.motion-toggle.is-off .i-pause{display:none}
 .motion-toggle.is-off .i-play{display:block}
-@media (max-width:760px){.deco{opacity:.16}.deco-glow-gold,.deco-glow-lilac{opacity:1}.deco-moon,.deco-branch{opacity:.24}}
+@media (max-width:760px){.deco{opacity:.16}.deco-glow-gold,.deco-glow-lilac{opacity:1}.deco-moon,.deco-branch{opacity:.24}.deco-enso{opacity:.22}}
 @media print{canvas.sparkles,.depth,.motion-toggle{display:none}}
 
 /* testimonials */
