@@ -155,10 +155,6 @@ main>.section:first-of-type .container>h2::after{display:none}
 main>.section:first-of-type{padding-top:56px;background:linear-gradient(178deg,var(--lilac-soft) 0,var(--lavender) 170px,var(--bg) 430px)}
 main>.section:first-of-type h1::before{content:"";display:block;width:60px;height:60px;margin-bottom:12px;background:url(../images/icon-sun.svg) center/contain no-repeat}
 
-/* sparkles beside the portrait */
-.hero .portrait{position:relative}
-.hero .portrait::after{content:"";position:absolute;top:2%;inset-inline-start:-4%;width:58px;height:58px;background:url(../images/sparkles.svg) center/contain no-repeat}
-
 /* soft layers into the footer */
 main::after{content:"";display:block;height:90px;background:url(../images/waves-layered.svg) center/100% 100% no-repeat}
 .site-footer::before{margin-top:0}
@@ -181,8 +177,6 @@ main::after{content:"";display:block;height:90px;background:url(../images/waves-
 .deco-glow-gold{background:radial-gradient(closest-side,rgba(232,190,120,.3),transparent)}
 .deco-glow-lilac{background:radial-gradient(closest-side,rgba(180,155,225,.34),transparent)}
 .thread{position:absolute;top:10px;left:0;width:100%;height:80px;overflow:visible;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;opacity:.75}
-.thread-tip{position:absolute;top:10px;left:-10px;width:20px;height:20px;margin-top:-10px;opacity:0;background:url(../images/sparkles.svg) 0 0/30px no-repeat;transition:opacity .5s}
-html:not(.motion) .thread-tip{display:none}
 canvas.sparkles{position:fixed;inset:0;width:100%;height:100%;z-index:15;pointer-events:none}
 canvas.sparkles[hidden]{display:none}
 .motion .reveal:not(.in){opacity:0;transform:translateY(38px) scale(.98)}

@@ -35,20 +35,14 @@
         layer.appendChild(el);
         decos.push({ el, section, speed, rot, base });
       });
-      // הקו רק בחלק מהאזורים, והכוכב רק בראשון שבהם
+      // הקו רק בחלק מהאזורים
       if (section.classList.contains("section") && i > 0 && eligible++ % 2 === 0) {
         const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svg.setAttribute("class", "thread");
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
         svg.appendChild(path);
         layer.append(svg);
-        let tip = null;
-        if (!threads.length) {
-          tip = document.createElement("div");
-          tip.className = "thread-tip";
-          layer.append(tip);
-        }
-        threads.push({ section, svg, path, tip, len: 0 });
+        threads.push({ section, svg, path, tip: null, len: 0 });
       }
       section.prepend(layer);
     });
@@ -103,7 +97,7 @@
       r: 1 + Math.random() * 1.7,
       phase: Math.random() * 6.28,
       speed: .5 + Math.random() * 1.2,
-      star: i % 3 === 0,
+      star: false, // רק נקודות אור עדינות, בלי כוכבים
       color: ["200,150,62", "200,150,62", "138,111,194", "201,139,94"][i % 4]
     }));
   }
