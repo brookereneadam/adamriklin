@@ -88,7 +88,7 @@ function testPost() {
 
 // ===== Email updates when a new event appears on the site =====
 // Setup: see "Email updates for new events" in SETUP.md.
-const SITE_URL = "https://brookereneadam.github.io/adamriklin";
+const SITE_URL = "https://adamriklin.com";
 const SENDER_NAME = "אדם ריקלין";
 const REPLY_TO = "brookereneco@gmail.com";
 const SEEN_KEY = "SEEN_EVENT_IDS";
@@ -190,8 +190,8 @@ function emailEvent_(ev) {
 
 function sendOne_(ev, email) {
   const u = Utilities.base64EncodeWebSafe(email, Utilities.Charset.UTF_8);
-  const unsubscribe = `${SITE_URL}/unsubscribe.html#u=${u}&t=${unsubscribeToken_(email)}`;
-  const eventsPage = `${SITE_URL}/events.html`;
+  const unsubscribe = `${SITE_URL}/unsubscribe#u=${u}&t=${unsubscribeToken_(email)}`;
+  const eventsPage = `${SITE_URL}/events`;
   const [y, m, d] = ev.date.split("-").map(Number);
   const day = `יום ${WEEKDAYS[new Date(y, m - 1, d).getDay()]}, ${d} ב${MONTHS[m - 1]} ${y}`;
   const details = [["מתי", day], ["שעה", ev.time], ["איפה", ev.location], ["מחיר", ev.price]].filter(r => r[1]);
